@@ -15,32 +15,31 @@ const Reservation = () => {
   const navigate = useNavigate();
 
   const handleReservation = async (e) => {
-    if (!firstName || !lastName || !email || !date || !phone || !time) {
-      toast.error("Pls fill all fields!");
-    } else {
-      e.preventDefault();
-      try {
-        const { data } = await axios.post(
-          "https://backend-tanishk-sharmas-projects-2cc9b3c7.vercel.app/api/v1/reservation/send",
-          { firstName, lastName, email, phone, date, time },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-            withCredentials: true,
-          }
-        );
-        toast.success(data.message);
-        setFirstName("");
-        setLastName("");
-        setPhone(0);
-        setEmail("");
-        setTime("");
-        setDate("");
-        navigate("/success");
-      } catch (error) {
-        toast.error(error);
-      }
+    // if (!firstName || !lastName || !email || !date || !phone || !time) {
+    //   toast.error("Pls fill all fields!");
+    // } else {
+    e.preventDefault();
+    try {
+      const { data } = await axios.post(
+        "https://backend-tanishk-sharmas-projects-2cc9b3c7.vercel.app/api/v1/reservation/send",
+        { firstName, lastName, email, phone, date, time },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      toast.success(data.message);
+      setFirstName("");
+      setLastName("");
+      setPhone(0);
+      setEmail("");
+      setTime("");
+      setDate("");
+      navigate("/success");
+    } catch (error) {
+      toast.error(error);
     }
   };
 
