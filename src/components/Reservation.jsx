@@ -40,6 +40,7 @@ const Reservation = () => {
       navigate("/success");
     } catch (error) {
       toast.error(error);
+      navigate("/");
     }
   };
 
