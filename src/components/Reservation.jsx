@@ -21,7 +21,7 @@ const Reservation = () => {
       e.preventDefault();
       try {
         const { data } = await axios.post(
-          "https://backend-je30mke4p-tanishk-sharmas-projects-2cc9b3c7.vercel.app/reservation/send",
+          "https://backend-je30mke4p-tanishk-sharmas-projects-2cc9b3c7.vercel.app/api/v1/reservation/send",
           { firstName, lastName, email, phone, date, time },
           {
             headers: {
